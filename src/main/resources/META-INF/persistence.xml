@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="MaintManagerDB">
+        <class>com.maint.manager.persistence.entities.Maint</class>
+        <class>com.maint.manager.persistence.entities.MaintComments</class>
+
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/maint_manager_db"/>
+            <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="iamgroot"/>
+            <property name="hibernate.connection.password" value="iamgroot"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+
+    <!--TODO delete after switching on -->
+    <persistence-unit name="MaintManagerDB_H2">
+        <class>com.maint.manager.persistence.entities.Maint</class>
+        <class>com.maint.manager.persistence.entities.MaintComments</class>
+
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:h2:mem:maint_manager_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.connection.username" value="iamgroot"/>
+            <property name="hibernate.connection.password" value="iamgroot"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
