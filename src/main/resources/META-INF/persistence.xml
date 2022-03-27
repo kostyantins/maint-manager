@@ -4,6 +4,8 @@
     <persistence-unit name="MaintManagerDB">
         <class>com.maint.manager.persistence.entities.Maint</class>
         <class>com.maint.manager.persistence.entities.MaintComments</class>
+        <class>com.maint.manager.persistence.entities.Capability</class>
+        <class>com.maint.manager.persistence.entities.Priorities</class>
 
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/maint_manager_db"/>
@@ -21,6 +23,8 @@
     <persistence-unit name="MaintManagerDB_H2">
         <class>com.maint.manager.persistence.entities.Maint</class>
         <class>com.maint.manager.persistence.entities.MaintComments</class>
+        <class>com.maint.manager.persistence.entities.Capability</class>
+        <class>com.maint.manager.persistence.entities.Priorities</class>
 
         <properties>
             <property name="hibernate.connection.url" value="jdbc:h2:mem:maint_manager_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false"/>
