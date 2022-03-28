@@ -9,7 +9,7 @@ import static javax.persistence.Persistence.createEntityManagerFactory;
 
 public class BasePersistenceTest {
 
-    private static EntityManagerFactory entityManagerFactory;
+    protected static EntityManagerFactory entityManagerFactory;
 
     @BeforeAll
     public static void setup() {

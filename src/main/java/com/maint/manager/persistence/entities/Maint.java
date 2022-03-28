@@ -9,16 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Builder
 @Entity
 @Table(name = "maint")
 public class Maint {
 
     @Id
     @GeneratedValue
-    @Column
     private Long id;
 
     @Column(name = "maint_identifier", unique = true)

@@ -1,16 +1,15 @@
 package com.maint.manager.persistence.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "maint_comments")
