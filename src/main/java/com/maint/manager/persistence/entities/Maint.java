@@ -1,9 +1,9 @@
 package com.maint.manager.persistence.entities;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +38,7 @@ public class Maint {
     private Integer solvePriorityId;
 
     @Column
+    @ColumnDefault("'N/A'")
     private Integer estimate;
 
     @Column(nullable = false)

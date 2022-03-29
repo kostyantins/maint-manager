@@ -20,7 +20,7 @@ public class EntityManagerUtil {
     }
 
     public void createQuery(Consumer<EntityManager> entityManagerConsumer) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        final var entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         try {
             entityManagerConsumer.accept(entityManager);
@@ -34,7 +34,7 @@ public class EntityManagerUtil {
     }
 
     public <T> T createQueryAndReturnObject(Function<EntityManager, T> entityManagerFunction) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        final var entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         try {
             T result = entityManagerFunction.apply(entityManager);
@@ -49,7 +49,7 @@ public class EntityManagerUtil {
     }
 
     public <T> T createReadOnlyQueryAndReturnObject(Function<EntityManager, T> entityManagerConsumer) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        final var entityManager = entityManagerFactory.createEntityManager();
         entityManager.unwrap(Session.class).setDefaultReadOnly(true);
         entityManager.getTransaction().begin();
         try {
