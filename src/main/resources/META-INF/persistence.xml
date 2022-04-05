@@ -16,6 +16,12 @@
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.format_sql" value="false"/>
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.minimumIdle" value="5"/>
+            <property name="hibernate.maximumPoolSize" value="20"/>
+            <property name="hibernate.idleTimeout" value="30000"/>
+            <property name="hibernate.connectionTimeout" value="30000"/>
         </properties>
     </persistence-unit>
 
@@ -35,6 +41,12 @@
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.format_sql" value="false"/>
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.minimumIdle" value="5"/>
+            <property name="hibernate.maximumPoolSize" value="20"/>
+            <property name="hibernate.idleTimeout" value="30000"/>
+            <property name="hibernate.connectionTimeout" value="30000"/>
         </properties>
     </persistence-unit>
 
