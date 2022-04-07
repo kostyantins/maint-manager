@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@ToString()
 @Builder
 @Entity
 @Table(name = "maint")
@@ -46,6 +47,7 @@ public class Maint {
 
     @Setter(AccessLevel.PRIVATE)
     @OneToMany(mappedBy = "maint", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private List<MaintComments> comments = new ArrayList<>();
 
     public void addComment(MaintComments comment) {
