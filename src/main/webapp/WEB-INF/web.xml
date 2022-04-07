@@ -6,22 +6,22 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>Maints</servlet-name>
+        <servlet-name>MaintServlet</servlet-name>
         <servlet-class>com.maint.manager.service.servlets.MaintServlet</servlet-class>
     </servlet>
 
     <servlet>
-        <servlet-name>Basic</servlet-name>
+        <servlet-name>BasicServlet</servlet-name>
         <servlet-class>com.maint.manager.service.servlets.BasicServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Maints</servlet-name>
+        <servlet-name>MaintServlet</servlet-name>
         <url-pattern>/maints</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>Basic</servlet-name>
+        <servlet-name>BasicServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
