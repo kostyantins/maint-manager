@@ -17,6 +17,7 @@ public class BasicServlet extends HttpServlet {
 
         out.println("<html><body align=\"center\">");
         out.println("<h1>" + "This page is a Maints manager application basic page" + "</h1>");
+        out.println("<h2>" + "Call: '/maints' to gather all existing maints" + "</h1>");
         out.println("</body></html>");
     }
 }
