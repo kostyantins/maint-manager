@@ -3,6 +3,7 @@ package com.maint.manager.persistence.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -23,7 +24,7 @@ public class MaintComments {
     private String commentText;
 
     @Column(name = "created_data", nullable = false)
-    private LocalDateTime createdData;
+    private LocalDate createdData;
 
     @ManyToOne
     @JoinColumn(name = "maint_id")
@@ -32,6 +33,6 @@ public class MaintComments {
     public MaintComments(String commentText, Maint maint) {
         this.commentText = commentText;
         this.maint = maint;
-        this.createdData = LocalDateTime.now();
+        this.createdData = LocalDate.now();
     }
 }

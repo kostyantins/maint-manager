@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +31,10 @@ public class Maint {
     private Long capabilityId;
 
     @Column(name = "appeared_data", nullable = false)
-    private LocalDateTime createdData;
+    private LocalDate createdData;
 
     @Column(name = "due_data", nullable = false)
-    private LocalDateTime dueData;
+    private LocalDate dueData;
 
     @Column(name = "sovle_priority_id", nullable = false)
     private Integer solvePriorityId;
