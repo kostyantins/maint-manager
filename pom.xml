@@ -91,14 +91,6 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        TODO delete if redundant-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.servlet</groupId>-->
-<!--            <artifactId>jakarta.servlet-api</artifactId>-->
-<!--            <version>5.0.0</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-
         <!--Since JAXB APIs is no longer in default classpath in JDK 1.9 -->
         <dependency>
             <groupId>javax.xml.bind</groupId>

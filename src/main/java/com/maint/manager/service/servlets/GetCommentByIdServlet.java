@@ -1,6 +1,6 @@
 package com.maint.manager.service.servlets;
 
-import com.maint.manager.persistence.dao.MaintDao;
+import com.maint.manager.persistence.dao.MaintCommentDao;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,18 +12,18 @@ import static com.maint.manager.service.servlets.BasicServlet.entityManagerFacto
 import static java.lang.Long.parseLong;
 import static java.lang.String.format;
 
-@WebServlet("/maintbyid")
-public class GetMaintByIdServlet extends HttpServlet {
+@WebServlet("/commentbyid")
+public class GetCommentByIdServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final var maintDao = new MaintDao(entityManagerFactory);
-        final var maintId = request.getParameter("id");
-        final var maint = maintDao.findById(parseLong(maintId));
+        final var maintDao = new MaintCommentDao(entityManagerFactory);
+        final var commentId = request.getParameter("id");
+        final var comment = maintDao.findById(parseLong(commentId));
         final var writer = response.getWriter();
 
-        if (maint.isPresent()) {
-            writer.println(maint);
-        } else writer.println(format("No active Maint with id: %s present !!", maintId));
+        if (comment.isPresent()) {
+            writer.println(comment);
+        } else writer.println(format("No active Maint with id: %s present !!", commentId));
     }
 }
