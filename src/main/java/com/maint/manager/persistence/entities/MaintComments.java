@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(exclude = "maint")
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "maint_comments")

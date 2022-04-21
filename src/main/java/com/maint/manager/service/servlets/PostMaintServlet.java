@@ -1,5 +1,6 @@
 package com.maint.manager.service.servlets;
 
+import com.maint.manager.persistence.dao.MaintCommentDao;
 import com.maint.manager.persistence.dao.MaintDao;
 import com.maint.manager.persistence.entities.Maint;
 import com.maint.manager.persistence.entities.MaintComments;
@@ -35,11 +36,17 @@ public class PostMaintServlet extends HttpServlet {
                 .fixVersion(request.getParameter("fixVersion"))
                 .build();
 
-        //TODO investigate null pointer exception in case of existing comment
-        if (comment != null && !comment.isEmpty())
-            maint.addComment(new MaintComments(comment, maint));
-
         maintDao.save(maint);
+
+        if (comment != null && !comment.isEmpty()) {
+            final var maintCommentDao = new MaintCommentDao(entityManagerFactory);
+            final var maintComment = new MaintComments(comment, maint);
+            maintCommentDao.save(maintComment);
+
+            response.getWriter().write(format("New maint was added: '%s' with comment: %s", maint, maintComment));
+
+            return;
+        }
 
         response.getWriter().write(format("New maint was added: '%s'", maint));
     }
