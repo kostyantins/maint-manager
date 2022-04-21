@@ -32,6 +32,7 @@ public class PostMaintServlet extends HttpServlet {
                 .solvePriorityId(Integer.valueOf(request.getParameter("solvePriorityId")))
                 .estimate(Integer.valueOf(request.getParameter("estimate")))
                 .client(request.getParameter("client"))
+                .fixVersion(request.getParameter("fixVersion"))
                 .build();
 
         //TODO investigate null pointer exception in case of existing comment
