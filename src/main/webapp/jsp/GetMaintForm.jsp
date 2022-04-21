@@ -12,6 +12,7 @@
     Solve priority id : <input type="number" name="solvePriorityId"><br>
     Estimate : <input type="number" name="estimate"><br>
     Client : <input type="text" name="client"><br>
+    Fix version : <input type="text" name="fixVersion"><br>
     <input type="submit" value="Add maint">
 </form>
 </body>

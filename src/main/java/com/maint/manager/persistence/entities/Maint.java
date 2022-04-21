@@ -42,6 +42,10 @@ public class Maint {
     @ColumnDefault("'N/A'")
     private Integer estimate;
 
+    @Column(name = "fix_version")
+    @ColumnDefault("'N/A'")
+    private String fixVersion;
+
     @Column(nullable = false)
     private String client;
 

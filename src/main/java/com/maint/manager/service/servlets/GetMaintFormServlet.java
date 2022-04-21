@@ -24,6 +24,7 @@ public class GetMaintFormServlet extends HttpServlet {
                 + "Estimate :          <input type=\"number\" name=\"estimate\"><br>"
                 + "Client :            <input type=\"text\" name=\"client\"><br>"
                 + "Comment :           <input type=\"text\" name=\"comment\"><br>"
+                + "Fix version :       <input type=\"text\" name=\"ficVersion\"><br>"
                 + "<input type=\"submit\" value=\"Add maint\">"
                 + "</form>");
         writer.println("</body>" + "</html>");
