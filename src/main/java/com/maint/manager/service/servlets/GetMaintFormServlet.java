@@ -15,6 +15,9 @@ public class GetMaintFormServlet extends HttpServlet {
         response.setContentType("text/html");
         final var writer = response.getWriter();
 
+        //TODO read .jsp
+        //request.getRequestDispatcher("GetMaintForm.jsp");
+
         writer.println("<html>" + "<body align=\"center\">");
         writer.println("<form action=\"maint\" method=\"post\">"
                 + "Maint identifier :  <input type=\"text\" name=\"maintIdentifier\"><br>"

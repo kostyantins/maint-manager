@@ -22,10 +22,12 @@
             <property name="hibernate.maximumPoolSize" value="20"/>
             <property name="hibernate.idleTimeout" value="30000"/>
             <property name="hibernate.connectionTimeout" value="30000"/>
+
+            <property name="hibernate.jndi.class" value="javax.naming.InitialContext"/>
         </properties>
     </persistence-unit>
 
-    <!--TODO delete after switching on -->
+    <!--TODO delete after switching on MariaDB-->
     <persistence-unit name="MaintManagerDB_H2">
         <class>com.maint.manager.persistence.entities.Maint</class>
         <class>com.maint.manager.persistence.entities.MaintComments</class>
@@ -47,6 +49,8 @@
             <property name="hibernate.maximumPoolSize" value="20"/>
             <property name="hibernate.idleTimeout" value="30000"/>
             <property name="hibernate.connectionTimeout" value="30000"/>
+
+            <property name="hibernate.jndi.class" value="javax.naming.InitialContext"/>
         </properties>
     </persistence-unit>
 

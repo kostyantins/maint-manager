@@ -37,6 +37,7 @@
         <slf4j-simple.version>1.7.36</slf4j-simple.version>
         <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
         <javafaker.version>1.0.2</javafaker.version>
+        <jetty-jndi.version>11.0.9</jetty-jndi.version>
 
         <!--DB-->
         <mariadb-java-client.version>3.0.3</mariadb-java-client.version>
