@@ -3,7 +3,6 @@ package com.maint.manager.service.servlets;
 import com.maint.manager.persistence.dao.MaintCommentDao;
 import com.maint.manager.persistence.dao.MaintDao;
 import com.maint.manager.persistence.entities.MaintComments;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +13,9 @@ import java.io.IOException;
 import static com.maint.manager.service.servlets.BasicServlet.entityManagerFactory;
 import static java.lang.Long.parseLong;
 import static java.lang.String.format;
+import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
+import static javax.servlet.http.HttpServletResponse.SC_CREATED;
 
-@Slf4j
 @WebServlet("/comment")
 public class PostCommentServlet extends HttpServlet {
 
@@ -27,14 +27,21 @@ public class PostCommentServlet extends HttpServlet {
         final var comment = request.getParameter("comment");
         final var maintId = request.getParameter("maintId");
 
-        final var maint = maintDao
-                .findById(parseLong(maintId))
-                .orElseThrow(() -> new IllegalStateException(format("Maint by Id: '%s' was not found !!", maintId)));
+        try {
+            final var maint = maintDao
+                    .findById(parseLong(maintId))
+                    .orElseThrow(() -> new IllegalStateException(format("Maint by Id: '%s' was not found !!", maintId)));
 
-        final var maintComment = new MaintComments(comment, maint);
+            final var maintComment = new MaintComments(comment, maint);
 
-        maintCommentDao.save(maintComment);
+            maintCommentDao.save(maintComment);
 
-        response.getWriter().write(format("New comment was added: '%s'", comment));
+            response.getWriter().write(format("New comment was added: '%s'", comment));
+
+            response.setStatus(SC_CREATED);
+        } catch (Exception e) {
+            response.setStatus(SC_BAD_REQUEST);
+            response.getWriter().write(format("Comment was not added due to: '%s'", e.getMessage()));
+        }
     }
 }

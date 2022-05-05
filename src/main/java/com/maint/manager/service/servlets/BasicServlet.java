@@ -23,6 +23,12 @@ public class BasicServlet extends HttpServlet {
     }
 
     @Override
+    public void destroy() {
+        super.destroy();
+        entityManagerFactory.close();
+    }
+
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 

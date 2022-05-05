@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static java.lang.String.format;
+import static javax.servlet.http.HttpServletResponse.SC_NOT_FOUND;
+
 @WebServlet("/commentform")
 public class GetCommentFormServlet extends HttpServlet {
 
@@ -14,12 +17,17 @@ public class GetCommentFormServlet extends HttpServlet {
         response.setContentType("text/html");
         final var writer = response.getWriter();
 
-        writer.println("<html>" + "<body align=\"center\">");
-        writer.println("<form action=\"comment\" method=\"post\">"
-                + "Comment :           <input type=\"text\" name=\"comment\"><br>"
-                + "Maint id :          <input type=\"number\" name=\"maintId\"><br>"
-                + "<input type=\"submit\" value=\"Add comment\">"
-                + "</form>");
-        writer.println("</body>" + "</html>");
+        try {
+            writer.println("<html>" + "<body align=\"center\">");
+            writer.println("<form action=\"comment\" method=\"post\">"
+                    + "Comment :           <input type=\"text\" name=\"comment\"><br>"
+                    + "Maint id :          <input type=\"number\" name=\"maintId\"><br>"
+                    + "<input type=\"submit\" value=\"Add comment\">"
+                    + "</form>");
+            writer.println("</body>" + "</html>");
+        } catch (Exception e) {
+            response.setStatus(SC_NOT_FOUND);
+            writer.println(format("Comment form was not found due to: '%s'", e.getMessage()));
+        }
     }
 }

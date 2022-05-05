@@ -11,6 +11,8 @@ import java.io.IOException;
 import static com.maint.manager.service.servlets.BasicServlet.entityManagerFactory;
 import static java.lang.Long.parseLong;
 import static java.lang.String.format;
+import static javax.servlet.http.HttpServletResponse.SC_NO_CONTENT;
+import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 @WebServlet("/maintbyid")
 public class GetMaintByIdServlet extends HttpServlet {
@@ -23,7 +25,11 @@ public class GetMaintByIdServlet extends HttpServlet {
         final var writer = response.getWriter();
 
         if (maint.isPresent()) {
+            response.setStatus(SC_OK);
             writer.println(maint);
-        } else writer.println(format("No active Maint with id: %s present !!", maintId));
+        } else {
+            response.setStatus(SC_NO_CONTENT);
+            writer.println(format("No active Maint with id: %s present !!", maintId));
+        }
     }
 }

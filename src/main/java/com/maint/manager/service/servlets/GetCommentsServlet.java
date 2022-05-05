@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static com.maint.manager.service.servlets.BasicServlet.entityManagerFactory;
+import static javax.servlet.http.HttpServletResponse.SC_NO_CONTENT;
+import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 @WebServlet("/comments")
 public class GetCommentsServlet extends HttpServlet {
@@ -20,7 +22,11 @@ public class GetCommentsServlet extends HttpServlet {
         final var writer = response.getWriter();
 
         if (!commentsArray.isEmpty()) {
+            response.setStatus(SC_OK);
             writer.println(commentsArray);
-        } else writer.println("No active Maints present !!");
+        } else {
+            response.setStatus(SC_NO_CONTENT);
+            writer.println("No active Comments present !!");
+        }
     }
 }

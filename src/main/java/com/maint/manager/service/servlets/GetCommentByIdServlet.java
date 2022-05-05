@@ -11,6 +11,8 @@ import java.io.IOException;
 import static com.maint.manager.service.servlets.BasicServlet.entityManagerFactory;
 import static java.lang.Long.parseLong;
 import static java.lang.String.format;
+import static javax.servlet.http.HttpServletResponse.SC_NO_CONTENT;
+import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 @WebServlet("/commentbyid")
 public class GetCommentByIdServlet extends HttpServlet {
@@ -23,7 +25,11 @@ public class GetCommentByIdServlet extends HttpServlet {
         final var writer = response.getWriter();
 
         if (comment.isPresent()) {
+            response.setStatus(SC_OK);
             writer.println(comment);
-        } else writer.println(format("No active Maint with id: %s present !!", commentId));
+        } else {
+            response.setStatus(SC_NO_CONTENT);
+            writer.println(format("No active Maint with id: '%s' present !!", commentId));
+        }
     }
 }

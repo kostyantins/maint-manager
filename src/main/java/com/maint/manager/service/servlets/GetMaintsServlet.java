@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static com.maint.manager.service.servlets.BasicServlet.entityManagerFactory;
+import static javax.servlet.http.HttpServletResponse.SC_NO_CONTENT;
+import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 @WebServlet("/maints")
 public class GetMaintsServlet extends HttpServlet {
@@ -20,7 +22,11 @@ public class GetMaintsServlet extends HttpServlet {
         final var writer = response.getWriter();
 
         if (!maintsArray.isEmpty()) {
+            response.setStatus(SC_OK);
             writer.println(maintsArray);
-        } else writer.println("No active Maints present !!");
+        } else {
+            response.setStatus(SC_NO_CONTENT);
+            writer.println("No active Maints present !!");
+        }
     }
 }
