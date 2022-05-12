@@ -8,8 +8,6 @@
     <artifactId>maint-manager</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>war</packaging>
-
     <properties>
         <!--MAVEN-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
